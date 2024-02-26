@@ -214,25 +214,25 @@
             </div>
             <div class="row justify-content-center">
             <div class="col-md-6">
-              <form>
+              <form name="JDcontact">
                 <div class="mb-3">
                   <label for="Name" class="form-label">Nama</label>
-                  <input type="text" class="form-control" id="Name" aria-describedby="Name">
+                  <input type="text" class="form-control" id="Name" aria-describedby="Name" name="nama">
                   <div id="Name" class="form-text">Complete Name.</div>
                 </div>
                 <div class="mb-3">
                   <label for="Email" class="form-label">Email</label>
-                  <input type="email" class="form-control" id="Email" aria-describedby="Email">
+                  <input type="email" class="form-control" id="Email" aria-describedby="Email" name="email">
                   <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                 </div>
                 <div class="mb-3">
                   <label for="NoHP" class="form-label">Phone</label>
-                  <input type="text" class="form-control" id="NoHP" aria-describedby="NoHP">
+                  <input type="text" class="form-control" id="NoHP" aria-describedby="NoHP" name="phone">
                   <div id="NoHP" class="form-text">Real Number Please!.</div>
                 </div>
                 <div class="mb-3">
                   <label for="Pesan" class="form-label">Pesan</label>
-                  <textarea class="form-control" id="Pesan" rows="3"></textarea>
+                  <textarea class="form-control" id="Pesan" rows="3" name="pesan"></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Kirim</button>
               </form>
@@ -251,8 +251,17 @@
       <script>src="https://www.facebook.com/hansen.ismawan/"</script>
       <!--Script-->
       <!--Script Input-->
-
-
+      <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwOMPo_aKcbLOmWkI2r7tGzBRRJKLECILuIBg0-DiJJTHrdRtJEQY8uHCjsuAnEOjSpfQ/exec'
+        const form = document.forms['JDcontact']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => console.log('Success!', response))
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
     <!--end Script-->
   </body>
 </html>
