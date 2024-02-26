@@ -9,6 +9,10 @@
 section {
   padding-top: 5rem;
 }
+.tombol {
+  text-transform: uppercase;
+  border-radius: 40px;
+}
 
 /* Desktop */
 @media (min-width: 992px) {
@@ -17,8 +21,13 @@ section {
     margin-right: 10px;
   }
 
-  .nav-link:hover {
-    border-bottom: 2px solid #ffffff;
-    width: 10%;
+  .nav-link:hover::after {
+    content: '';
+    display: block;
+    border-bottom: 3px solid #ffffff;
+    width: 40%;
+    margin: auto;
+    padding-bottom: 5px;
+    margin-bottom: -8px;
   }
 }
