@@ -1,11 +1,23 @@
-.body{
-    min-height: 2000px;
-    background-color: #ffffff;
+.body {
+  min-height: 2000px;
+  background-color: #ffffff;
 }
-.jumbotron{
-    padding-top: 10rem;
-    background-color: #a2d9ff;
+.jumbotron {
+  padding-top: 10rem;
+  background-color: #a2d9ff;
 }
-section{
-    padding-top: 5rem;
+section {
+  padding-top: 5rem;
+}
+/* Desktop */
+@media (min-width: 992px) {
+  .nav-link {
+    text-transform: uppercase;
+    margin-right: 30px;
+  }
+
+  .nav-link:hover {
+    border-bottom: 3px solid #ffffff;
+    width: 30%;
+  }
 }
