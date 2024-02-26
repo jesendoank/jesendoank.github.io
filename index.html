@@ -279,6 +279,8 @@
               btnKirim.classList.toggle ('d-none');
               // tampilkan Alerts
               jdAlert.classList.toggle ('d-none');
+              // reset form
+              form.reset();
               console.log('Success!', response)
             })
             .catch(error => console.error('Error!', error.message))
