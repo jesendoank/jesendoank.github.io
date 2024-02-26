@@ -214,8 +214,8 @@
             </div>
             <div class="row justify-content-center">
             <div class="col-md-6">
-              <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <strong>Terima Kasih!</strong> Pesan Anda Sudah Kami Terima.
+              <div class="alert alert-success alert-dismissible fade show d-none jd-alert" role="alert">
+                <strong>Terima Kasih!</strong> Pesan Anda sudah kami terima.
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
               </div>
               <form name="JDcontact">
@@ -263,11 +263,24 @@
       <script>
         const scriptURL = 'https://script.google.com/macros/s/AKfycbwOMPo_aKcbLOmWkI2r7tGzBRRJKLECILuIBg0-DiJJTHrdRtJEQY8uHCjsuAnEOjSpfQ/exec'
         const form = document.forms['JDcontact']
-      
+        const btnKirim = document.querySelector ('.btn-kirim')
+        const btnLoading = document.querySelector ('.btn-loading')
+        const jdAlert = document.querySelector ('.jd-alert')
         form.addEventListener('submit', e => {
           e.preventDefault()
+          // submit on click
+          // tampilkan tombol loading, hilangkan tombol kirim
+          btnLoading.classList.toggle ('d-none');
+          btnKirim.classList.toggle ('d-none')
           fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-            .then(response => console.log('Success!', response))
+            .then(response => {
+              // tampilkan tombol kirim, hilangkan tombol loading
+              btnLoading.classList.toggle ('d-none');
+              btnKirim.classList.toggle ('d-none');
+              // tampilkan Alerts
+              jdAlert.classList.toggle ('d-none');
+              console.log('Success!', response)
+            })
             .catch(error => console.error('Error!', error.message))
         })
       </script>
