@@ -214,6 +214,10 @@
             </div>
             <div class="row justify-content-center">
             <div class="col-md-6">
+              <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Terima Kasih!</strong> Pesan Anda Sudah Kami Terima.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
               <form name="JDcontact">
                 <div class="mb-3">
                   <label for="Name" class="form-label">Nama</label>
@@ -234,7 +238,12 @@
                   <label for="Pesan" class="form-label">Pesan</label>
                   <textarea class="form-control" id="Pesan" rows="3" name="pesan"></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary">Kirim</button>
+                <button type="submit" class="btn btn-primary btn-kirim">Kirim</button>
+
+                <button class="btn btn-primary btn-loading d-none" type="button" disabled>
+                  <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                  <span role="status">Loading...</span>
+                </button>
               </form>
             </div>
           </div>
